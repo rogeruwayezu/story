@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  color: MyString
+  price: 1
+  name: MyString
+  genre: MyString
+
+two:
+  color: MyString
+  price: 1
+  name: MyString
+  genre: MyString

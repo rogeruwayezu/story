@@ -1,0 +1,3 @@
+Display every other letters of this array
+
+letters = ["a", "b", "c", "d"]
