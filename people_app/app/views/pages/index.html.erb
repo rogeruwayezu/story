@@ -1,0 +1,15 @@
+<div ng-app="app">
+  <div ng-controller="peopleCtrl">
+    <h1>List of people</h1>
+    <ul>
+      <li ng-repeat="person in people track by $index" ng-click="showBio(person)" ng-if="! person.bioVisible">
+        <p>Name: {{person.name}}</p>
+        <p>Bio: {{person.bio}}</p>
+        <p>bioVisible: {{person.bioVisible}}</p>
+        
+      </li>
+    </ul>
+
+  </div>
+</div>
+

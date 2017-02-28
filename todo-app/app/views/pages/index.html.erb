@@ -1,10 +1,15 @@
 <div ng-app="app">
   
   <div ng-controller="messageCtrl">
-    <div ng-repeat= "step in steps">{{step}}
-
-    <input ng-model="step">
+    < <h1>Things I must do</h1>
+    <ul>
+      <li ng-repeat="step in steps">
+        {{step}}
+      </li>
+    </ul>
+    <div>
+      Add step: <input ng-model="newStep" required>
+      <button ng-click="addStep(newStep)">Add Step</button>
     </div>
-
   </div>
-  </div> 
+</div> 
