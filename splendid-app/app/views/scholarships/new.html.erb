@@ -1,7 +1,7 @@
-<h1>Signup!</h1>
+<h1>Create a scholarship</h1>
 <ul>
-<% if @user.errors.any? %>
-   <% @user.errors.full_messages.each do |message| %>
+<% if @scholarship.errors.any? %>
+   <% @scholarship.errors.full_messages.each do |message| %>
      <li class="model-errors"><%= message %></li> 
    <% end %>
 <% end %>
@@ -20,8 +20,8 @@
      <select name="organization_id">
           <option value="" disabled selected>Select your option</option>
           <% @organizations.each do |organization| %>
-            <option value="<%= role.id %>">
-            <%= organization.name %></option>
+            <option value="<%= organization.id %>">
+            <%= organization.title %></option>
           <% end %>     
       </select>     
     </div>

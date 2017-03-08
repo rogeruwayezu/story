@@ -1,0 +1,32 @@
+<h1>Create Application Form</h1>
+<ul>
+<% if @application.errors.any? %>
+   <% @application.errors.full_messages.each do |message| %>
+     <li class="model-errors"><%= message %></li> 
+   <% end %>
+<% end %>
+</ul>
+<%= form_tag '/applications', method: :post do  %>
+  <div>
+    Title:
+    <input type="text" name="title">
+  </div>
+  <div>
+    Description:
+    <input type="text" name="description">
+  </div>
+  <div>
+    <input type="hidden" name="user_id" class="form_control" value="<%= current_user.id %>">
+  </div>
+  <div class="form-group">
+    Scholarhip: 
+     <select name="scholarship_id">
+          <option value="" disabled selected>Select your option</option>
+          <% @scholarships.each do |scholarship| %>
+            <option value="<%= scholarship.id %>">
+            <%= scholarship.title %></option>
+          <% end %>     
+      </select>     
+    </div>
+  <input type="submit" value="Submit">
+<% end %>

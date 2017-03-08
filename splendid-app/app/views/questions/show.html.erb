@@ -1,0 +1,11 @@
+<%= form_tag '/questions', method: :post do  %>
+  <% @applications.each do |application|%>
+    <% application.questions.each do |question| %>
+        <div>
+          <h1><%= question.title%></h1>
+          <input type="text" name="title">
+        </div>
+    <% end %>
+  <% end %>
+  <input type="submit" value="Submit">
+<% end %>

@@ -1,0 +1,8 @@
+<h1>Scholarships</h1>
+<% @scholarships.each do |scholarship|%>
+  <h2>  <%= link_to scholarship.title, "/scholarships/#{scholarship.id}" %></h2>
+  <h2><%= scholarship.description%></h2>
+<% end %>
+<% if current_user && current_user.organization %>
+  <%= button_to "Add Scholarship", "/scholarships/new", class: "btn btn-success", method: :get %>
+<% end %>

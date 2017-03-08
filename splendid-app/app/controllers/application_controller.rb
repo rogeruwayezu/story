@@ -16,4 +16,11 @@ class ApplicationController < ActionController::Base
       redirect_to "/"
     end
    end
+   def authenticate_organization!
+    unless current_user && current_user.organization
+      flash[:danger] = "Access Denied"
+      redirect_to "/"
+    end
+   end
+
 end

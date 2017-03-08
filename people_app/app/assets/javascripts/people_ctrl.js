@@ -21,8 +21,12 @@
       }
     ];
     $scope.showBio = function(person) {
-      var index = $scope.people.indexOf(person);
-      $scope.people[index].bioVisible = true;
+      if($scope.people[index].bioVisible === false){
+        $scope.people[index].bioVisible = true;
+      }else{
+        $scope.people[index].bioVisible = false;
+      }
+      
     }
      window.$scope = $scope;
    });

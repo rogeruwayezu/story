@@ -1,0 +1,7 @@
+<h1>Scholarship</h1>
+<h2><%= @scholarship.title%></h2>
+<h2><%= @scholarship.description%></h2>
+<% if current_user && current_user.organization %>
+  <%= button_to "Delete", "/scholarships/#{@scholarship.id}", class: "btn btn-danger", method: :delete, data: { confirm: 'are you sure?' } %>
+<% end %>
+<%= button_to "Add Application Form", "/applications/new", class: "btn btn-success", method: :get %>
