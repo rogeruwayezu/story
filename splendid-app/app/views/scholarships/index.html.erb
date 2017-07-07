@@ -1,8 +1,16 @@
-<h1>Scholarships</h1>
-<% @scholarships.each do |scholarship|%>
-  <h2>  <%= link_to scholarship.title, "/scholarships/#{scholarship.id}" %></h2>
-  <h2><%= scholarship.description%></h2>
-<% end %>
-<% if current_user && current_user.organization %>
-  <%= button_to "Add Scholarship", "/scholarships/new", class: "btn btn-success", method: :get %>
-<% end %>
+<div class="w3-section w3-margin">
+  <div class="w3-container  w3-margin">
+    <% if current_user && current_user.user_organization %>
+      <%= button_to "Add Scholarship", "/scholarships/new", class: "btn btn-success", method: :get %>
+    <% end %>
+     <h2><strong>Scholarships</strong></h2>
+      <% @scholarships.each do |scholarship|%>
+        <div class="jumbotron">
+          <div class="">
+            <h4 style="font-size: 18px; text-align: center; margin-top: -10px"><strong><%= link_to scholarship.title, "/scholarships/#{scholarship.id}" %></strong></h4>
+            <p style="font-size: 16px; margin-left: 30px; margin-right: 30px;"><%= scholarship.summary%></p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>

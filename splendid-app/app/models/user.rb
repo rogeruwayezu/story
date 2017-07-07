@@ -4,10 +4,11 @@ class User < ApplicationRecord
   has_many :applications
   has_many :scholarships, through: :applications
   has_one :organization
-  has_one :answer 
-
-  def organization 
+  def user_organization 
     role.name == "organization"
+  end
+  def user_applicant
+    role.name == "applicant"
   end
 
 end

@@ -1,0 +1,195 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+.article {
+    width: 1000px;
+    padding: 20px;
+    margin: 0 auto;
+    
+}
+.jumbotron {
+    background-color: #ffffff;
+}
+body {
+  /*font-family: 'Lora', serif;*/
+  font-size: 20px;
+  background-color: #f2f2f2;
+}
+.bg {
+    background-color: pink;
+    width: 100%;
+    margin-top: -10px;
+    img {
+        min-width: 100%;
+    }
+}
+
+.form_main {
+    width: 100%;
+}
+.form_main h4 {
+    font-family: roboto;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+.heading {
+    border-bottom: 1px solid #fcab0e;
+    padding-bottom: 9px;
+    position: relative;
+}
+.heading span {
+    background: #9e6600 none repeat scroll 0 0;
+    bottom: -2px;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 75px;
+}   
+.form {
+    border-radius: 7px;
+    padding: 6px;
+}
+.txt[type="text"] {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 10px 0 10px 5px;
+    width: 100%;
+}
+.txt_3[type="text"] {
+    margin: 10px 0 0;
+    padding: 10px 0 10px 5px;
+    width: 100%;
+}
+.txt2[type="submit"] {
+    background: #242424 none repeat scroll 0 0;
+    border: 1px solid #4f5c04;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 35px;
+    margin: 10px 0;
+    padding: 0;
+    text-transform: uppercase;
+    width: 30%;
+}
+.txt2:hover {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #5793ef;
+    transition: all 0.5s ease 0s;
+}
+
+
+
+ ::selection {
+        background-color: #b5e2e7;
+    }
+
+    ::-moz-selection {
+        background-color: #8ac7d8;
+    }
+
+    /*body {
+        background: #3CC;
+    }*/
+
+    .container {
+        display: -webkit-flex;
+        display: flex;
+        height: 100%;
+    }
+
+    #logbox {
+
+        padding: 10px;
+        margin: 50px auto;
+        width: 340px;
+        background-color: #fff;
+        -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 175%;
+        color: #757575;
+        font-weight: 300;
+    }
+
+    h1, input {
+        font-family: "Open Sans", Helvetica, sans-serif;
+    }
+
+    .input {
+        width: 75%;
+        height: 50px;
+        display: block;
+        margin: 0 auto 15px;
+        padding: 0 15px;
+        border: none;
+        border-bottom: 2px solid #ebebeb;
+    }
+    .input:focus {
+        outline: none;
+        border-bottom-color: #3CC !important;
+    }
+    .input:hover {
+        border-bottom-color: #dcdcdc;
+    }
+    .input:invalid {
+        box-shadow: none;
+    }
+
+    .pass:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset;
+    }
+
+    .inputButton {
+        position: relative;
+        width: 85%;
+        height: 50px;
+        display: block;
+        margin: 30px auto 30px;
+        color: white;
+        background-color: #3CC;
+        border: none;
+        -webkit-box-shadow: 0 5px 0 #2CADAD;
+        -moz-box-shadow: 0 5px 0 #2CADAD;
+        box-shadow: 0 5px 0 #2CADAD;
+    }
+    .inputButton:hover {
+        top: 2px;
+        -webkit-box-shadow: 0 3px 0 #2CADAD;
+        -moz-box-shadow: 0 3px 0 #2CADAD;
+        box-shadow: 0 3px 0 #2CADAD;
+    }
+    .inputButton:active {
+        top: 5px;
+        box-shadow: none;
+    }
+    .inputButton:focus {
+        outline: none;
+    }
+
+    .navbar-brand{
+            font-size: xx-large;
+    font-weight: bold;
+    font-family: cursive;
+    
+    }

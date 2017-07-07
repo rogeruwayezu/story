@@ -1,43 +1,33 @@
-<h1>Signup!</h1>
-<ul>
-<% if @user.errors.any? %>
-   <% @user.errors.full_messages.each do |message| %>
-     <li class="model-errors"><%= message %></li> 
-   <% end %>
-<% end %>
-</ul>
-<%= form_tag '/users', method: :post do  %>
-  <div>
-    First Name:
-    <input type="text" name="first_name">
-  </div>
-  <div>
-    Last Name:
-    <input type="text" name="last_name">
-  </div>
-  <div>
-    Email:
-    <input type="email" name="email">
-  </div>
 
-  <div>
-    Password:
-    <input type="password" name="password">
-  </div>
-
-  <div>
-    Confirm Password:
-    <input type="password" name="password_confirmation">
-  </div>
-    <div class="form-group">
-  Role: 
-     <select name="role_id">
-          <option value="" disabled selected>Select your option</option>
-          <% @roles.each do |role| %>
-            <option value="<%= role.id %>">
-            <%= role.name %></option>
-          <% end %>     
-      </select>     
+<div>
+<div class="container" >
+    <div class="col-md-6" >
+        <div id="logbox"  >
+            <%= form_tag '/users', method: :post do  %>
+                <h1>Create an Account</h1>
+                <input name="first_name" type="text" placeholder="First Name" class="input pass"/>
+                <input name="last_name" type="text" placeholder="Last Name" class="input pass"/>
+                <input name="email" type="email" placeholder="Email address" class="input pass"/>
+                <input name="password" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                <input name="password_confirmation" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+                <div class="form-group">
+                  Role: 
+                    <select name="role_id">
+                      <option value="" disabled selected>Select your option</option>
+                      <% @roles.each do |role| %>
+                        <option value="<%= role.id %>">
+                        <%= role.name %></option>
+                      <% end %>     
+                    </select>     
+                </div>
+                <input type="submit" value="Sign me up!" class="inputButton"/>
+            <% end %>
+        </div>
     </div>
-  <input type="submit" value="Submit">
-<% end %>
+    <!--col-md-6-->
+
+
+</div>
+</div>
+
+

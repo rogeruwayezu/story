@@ -1,4 +1,4 @@
 class Question < ApplicationRecord
-  belongs_to :application
-  has_many :answers
+  has_many :answers 
+  belongs_to :scholarship, optional:true
 end

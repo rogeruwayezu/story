@@ -7,41 +7,32 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
   </head>
 
-  <body>
     <!-- Navbar (sit on top) -->
-<div class="w3">
-  <div class="w3-bar w3-white w3-card-2 w3-black" id="myNavbar">
-    <a href="/" class="w3-bar-item w3-button w3-wide">Splendid</a>
-    <a href="/scholarships" class="w3-bar-item w3-button w3-wide">Explore Scholarships</a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-    <% if current_user %>
-      <a href="/logout" class="w3-bar-item w3-button"><i class="fa fa-th"></i>Log Out</a>
-      <% else %>
-        <a href="/signup" class="w3-bar-item w3-button">Sign Up</a>
-        <a href="/login" class="w3-bar-item w3-button"><i class="fa fa-user"></i>Log In</a>  
-    <% end %>
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars w3-padding-right w3-padding-left"></i>
-    </a>
-  </div>
+<% unless controller.controller_name == "pages" && controller.action_name == "index"%>
+<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none; background-color: teal; color:white;" id="leftMenu">
+  <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+  <a href="/" class="w3-bar-item w3-button">Home</a>
+  <% if current_user %>
+  <a href="/dashboards/applicant" class="w3-bar-item w3-button">My Applications</a>
+  <a href="/scholarships" class="w3-bar-item w3-button">Explore Scholarships</a>
+  <a href="/logout" class="w3-bar-item w3-button">Logout</a>
+  <a href="/answers" class="w3-bar-item w3-button">Answers</a>
+  <% end %>
 </div>
 
-<!-- Sidenav on small screens when clicking the menu icon -->
-<nav class="w3-sidenav w3-black w3-card-2 w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidenav">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-large w3-padding-16">Close ×</a>
-  <a href="/signup" onclick="w3_close()">Sign Up</a>
-  <a href="/login" onclick="w3_close()">Log In</a>
-  <a href="/logout" onclick="w3_close()">Log Out</a>
-
-</nav>
+<div class="w3-teal">
+  <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu()">&#9776;</button>
+  <div class="w3-container">
+  <% if current_user %>
+    <h1 style="color: white;">Welcome <%= current_user.first_name %>!</h1>
+  <% end %>
+  </div> 
+</div>
+<% end %>
+  <body>
     <%= yield %>
   </body>
 </html>
-

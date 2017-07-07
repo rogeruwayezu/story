@@ -1,0 +1,16 @@
+<div class="container">
+  <%= form_tag '/answers', method: :post do  %>
+      <% @scholarship.questions.each do |question| %>
+          <div class="form-group">
+          <label for="focusedInput"><%= question.title%></label>
+          <textarea class="form-control" name="body" rows="3"></textarea>
+          </div>
+          <div>
+            <input type="hidden" name="application_id" class="form_control" value="<%= @scholarship.id %>">
+          </div>
+          <div>
+            <input type="hidden" name="question_id" class="form_control" value="<%= question.id %>">
+          </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,25 +1,20 @@
-<h1>Add Question</h1>
-<ul>
-<% if @question.errors.any? %>
-   <% @question.errors.full_messages.each do |message| %>
-     <li class="model-errors"><%= message %></li> 
-   <% end %>
-<% end %>
-</ul>
-<%= form_tag '/questions', method: :post do  %>
-  <div>
-    Title:
-    <input type="text" name="title">
-  </div>
-  <div class="form-group">
-    Application: 
-     <select name="application_id">
-          <option value="" disabled selected>Select your option</option>
-          <% @applications.each do |application| %>
-            <option value="<%= application.id %>">
-            <%= application.title %></option>
-          <% end %>     
-      </select>     
+<div ng-app="app">
+
+  <div ng-controller="questionsCtrl" ng-init="setup(<%= params[:scholarship_id] %>)">
+    <div>
+      <div ng-repeat="question in scholarship.questions">
+        <p>{{question.title}}</p>
+        <div>
+          <input ng-model="question.titleUpdate">
+          <button ng-click="updateQuestion(question, $index)" >Update Question</button>
+        </div>
+        <button ng-click="deleteQuestion(question, $index)">Delete</button>
+      </div>
+        
+      <div>
+        Title: <input ng-model="questionTitle">
+        <button ng-click="addQuestion(questionTitle)">Add Question</button>
+      </div>
     </div>
-  <input type="submit" value="Submit">
-<% end %>
+  </div>
+</div>

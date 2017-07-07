@@ -1,10 +1,18 @@
 class ScholarshipsController < ApplicationController
   before_action :authenticate_organization!, only: [:new, :create, :edit, :update, :destroy]
   def index
-    @scholarships = Scholarship.all 
+    if current_user && current_user.user_organization
+      @scholarships = current_user.organization.scholarships
+    else
+    @scholarships = Scholarship.all
+    end
+   
   end
   def show
     @scholarship = Scholarship.find_by(id:params[:id])
+    @question = Scholarship.find_by(id:params[:id]).questions.first
+    
+
   end
   def new
     @organizations = Organization.all
@@ -13,12 +21,20 @@ class ScholarshipsController < ApplicationController
   def create
      @scholarship = Scholarship.new(
       title: params[:title],
-      description: params[:description],
-      organization_id: params[:organization_id]
+      summary: params[:summary],
+      full_description: params[:full_description],
+      organization_id: params[:organization_id],
+      course_level: params[:course_level],
+      study_subjects: params[:study_subjects],
+      number_of_awards: params[:number_of_awards],
+      covered_expenses: params[:covered_expenses],
+      elegibility: params[:elegibility],
+      how_to_apply: params[:how_to_apply],
+      deadline: params[:deadline]
       )
     if @scholarship.save
       flash[:success] = "Scholarship Created"
-      redirect_to "/applications/new"
+      redirect_to "/applications/#{@scholarship.id} "
     else
       flash[:danger] = "Order NOT Created"
       render :new
@@ -33,8 +49,16 @@ class ScholarshipsController < ApplicationController
     @scholarship = Scholarship.find_by(id: params[:id])
     @scholarship.assign_attributes({
       title: params[:title],
-      description: params[:description],
-      organization_id: params[:organization_id]
+      summary: params[:summary],
+      full_description: params[:full_description],
+      organization_id: params[:organization_id],
+      course_level: params[:course_level],
+      study_subjects: params[:study_subjects],
+      number_of_awards: params[:number_of_awards],
+      covered_expenses: params[:covered_expenses],
+      elegibility: params[:elegibility],
+      how_to_apply: params[:how_to_apply],
+      deadline: params[:deadline]
     })
     if @scholarship.save
       flash[:success] = "scholarship Updated"  

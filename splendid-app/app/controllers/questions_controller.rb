@@ -1,17 +1,18 @@
 class QuestionsController < ApplicationController
+  def index
+    @scholarship = Scholarship.find_by(id: params[:scholarship_id])
+  end
   def show
-    @applications = Application.all
     @question = Question.find_by(id: params[:id])
   end
   
   def new
     @question = Question.new
-    @applications = Application.all 
   end
   def create
      @question = Question.create(
       title: params[:title],
-      application_id: params[:application_id]
+      scholarship_id: params[:scholarship_id]
       )
     if @question.save
       flash[:success] = "Question Added"

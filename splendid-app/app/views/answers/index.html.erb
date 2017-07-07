@@ -1,0 +1,12 @@
+<div class="w3-margin w3-padding-large">
+  <% @scholarships.each do |scholarship| %>
+    <% scholarship.applications.each do |application| %>
+      <h4><strong>First Name:</strong> <%= application.user.first_name %></h4>
+      <h4><strong>Last Name:</strong> <%= application.user.last_name %></h4>
+      <%application.answers.each do |answer| %>
+        <p><strong>Question:</strong> <%= answer.question.title %></p>
+        <p><strong>Answer: </strong><%= answer.body %></p>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

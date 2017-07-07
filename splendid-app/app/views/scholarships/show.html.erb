@@ -1,7 +1,40 @@
-<h1>Scholarship</h1>
-<h2><%= @scholarship.title%></h2>
-<h2><%= @scholarship.description%></h2>
-<% if current_user && current_user.organization %>
-  <%= button_to "Delete", "/scholarships/#{@scholarship.id}", class: "btn btn-danger", method: :delete, data: { confirm: 'are you sure?' } %>
-<% end %>
-<%= button_to "Add Application Form", "/applications/new", class: "btn btn-success", method: :get %>
+<div class="w3-margin">  
+  <div class="w3-margin w3-padding-24">
+    <% if current_user && current_user.user_organization %>
+      <%= form_tag "/questions", method: :get do %>
+        <div>
+          <input type="hidden" name="scholarship_id" class="form_control" value="<%= @scholarship.id %>">
+        </div>
+        <div>
+        <%= button_to "Question Form", "/questions?scholarship_id=#{@scholarship.id} " , class: "btn btn-info", method: :get %>
+      <% end %>
+    <% end %> 
+    <div class="w3-padding-large">
+      <h4><strong><%= @scholarship.title%></strong></h4>
+      <p><br><strong>Full Description</strong>: <%= @scholarship.full_description%></br></p>
+      <p><br><strong>Course Level </strong>: <%= @scholarship.course_level%></br></p>
+      <p><br><strong>Study Subjects </strong>: <%= @scholarship.study_subjects%></br></p>
+      <p><br><strong>Number of Awards </strong>: <%= @scholarship.number_of_awards%></br></p>
+      <p><br><strong>Things to be covered by the scholarship </strong>: <%= @scholarship.covered_expenses%></br></p>
+      <p><br><strong>Eligibility </strong>: <%= @scholarship.elegibility%></br></p>
+      <p><br><strong>How to Apply </strong>: <%= @scholarship.how_to_apply%></br></p>
+      <p><br><strong>Deadline </strong>: <%= @scholarship.deadline%></br></p>
+      <% if current_user && current_user.organization %>
+        <%= button_to "Delete", "/scholarships/#{@scholarship.id}", class: "btn btn-danger", method: :delete, data: { confirm: 'are you sure?' } %>
+        <%= button_to "Edit", "/scholarships/#{@scholarship.id}/edit", class: "btn btn-default", method: :get %>
+        
+        <%= form_tag "/questions/new?scholarship_id=#{@scholarship.id}" , method: :get do %>
+          <div>
+            <input type="hidden" name="scholarship_id" class="form_control" value="<%= @scholarship.id %>">
+          </div>
+          <div>
+            <input type="submit" value="Add Question form" class="btn btn-default">
+          </div>
+        <% end %>
+      <% end %>
+      <% if current_user && current_user.user_applicant %>
+        <%= link_to "Application form", "/applications/new?scholarship_id=#{@scholarship.id}", class: "btn btn-info", method: :get %>
+      <%end%>
+      </div>
+  </div>
+</div>    

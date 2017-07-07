@@ -10,26 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307173122) do
+ActiveRecord::Schema.define(version: 20170328175311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.text     "body"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "application_id"
     t.integer  "question_id"
   end
 
   create_table "applications", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
+    t.string   "first_name"
     t.integer  "user_id"
     t.integer  "scholarship_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "last_name"
+    t.string   "personal_statement"
+    t.boolean  "completed"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -44,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170307173122) do
     t.text     "title"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "application_id"
+    t.integer  "scholarship_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -55,10 +57,18 @@ ActiveRecord::Schema.define(version: 20170307173122) do
 
   create_table "scholarships", force: :cascade do |t|
     t.string   "title"
-    t.string   "description"
     t.integer  "organization_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.text     "summary"
+    t.text     "full_description"
+    t.text     "course_level"
+    t.text     "study_subjects"
+    t.text     "number_of_awards"
+    t.text     "covered_expenses"
+    t.text     "elegibility"
+    t.text     "how_to_apply"
+    t.text     "deadline"
   end
 
   create_table "users", force: :cascade do |t|
