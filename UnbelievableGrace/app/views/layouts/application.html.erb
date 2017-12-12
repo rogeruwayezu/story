@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UpYouth</title>
+      <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+      <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+      <%= csrf_meta_tags %>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    
+  
+  </head>
+
+<body>
+ 
+
+ <!-- Navbar (sit on top) -->
+ <div class="w3-top">
+   <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+     <a href="#home" class="w3-bar-item w3-button"><b>Grace</b> of God</a>
+     <!-- Float links to the right. Hide them on small screens -->
+     <div class="w3-right w3-hide-small">
+       <a href="/pages/sermons" class="w3-bar-item w3-button">Sermons</a>
+       <a href="#about" class="w3-bar-item w3-button">About</a>
+       <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+     </div>
+   </div>
+ </div>
+
+
+  
+ 
+ </body>
+ </html>
+
+
+
+ <!-- Header -->
+  <% flash.each do |key, value| %>
+      <div class="text-center <%= flash_class(key) %>"><%= value %>
+      </div>
+  <% end %>
+
+
+  
+    <%= yield %>
+ 
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
